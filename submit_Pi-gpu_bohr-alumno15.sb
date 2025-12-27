@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH -p bohr-gpu
+#SBATCH --chdir=/home/alumno15/Lab6
+#SBATCH -J Lab6
+
+
+
+#Cargamos el modulo
+module load anaconda/2025.06
+
+NUMERO=$1
+
+
+#Ejecutar notebook con ipython, indicando antes los parámetros introducidos
+echo "Ejecutando con valor: $NUMERO"
+
+
+ipython pi-gpu-alumno15.ipynb $NUMERO
+
+
+#Descargamos modulo
+module unload anaconda/2025.06
+
